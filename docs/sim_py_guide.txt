@@ -1,0 +1,29 @@
+
+
+PYTHON SESSION:
+go to folder : fpga_lab_v3\py
+open power shell
+python .\sim_remote_access_example.py SIM
+
+go to folder : fpga_lab_v3\sim\modelsim
+open power shell
+vlib work (cab execute also from GUI console)
+vlog -f  ../src_list/fpga_lab_sim_py.f (cab execute also from GUI console)
+ 
+no gui:
+vsim -c -ldflags -lws2_32 tb
+modelsim> run -all
+or: vsim_py_no_gui.cmd (runs abov2 2 commands)
+
+with gui:
+same as non-python, but with:
+vsim  -ldflags -lws2_32 tb
+
+TODO:
+
+explain and demonstrate memory access
+check best uart speedup mode at simulation 
+provide gcd example or other   
+
+Notice: to run in non python mode, compile with: 
+vlog -f  ../src_list/fpga_lab_sim.f
